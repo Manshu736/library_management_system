@@ -25,9 +25,15 @@ type Book = {
                    }
         book.isAvailable = false;
       }
-    returnBook(isbn:string):void{
-        
-    }
+    // Return a borrowed book
+    returnBook(isbn: string): void {
+        const book = this.books.find((book) => book.isbn === isbn);
+        if (!book) {
+          throw new Error(`Book with ISBN ${isbn} not found.`);
+        }
+        book.isAvailable = true;
+      }
+    
     viewAvailableBooks(): Book[] {
         return this.books.filter((book) => book.isAvailable);
       }
