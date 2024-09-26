@@ -39,4 +39,13 @@ describe('Library Management System', () => {
     expect(() => library.returnBook('999')).toThrowError('Book with ISBN 999 not found.');
   });
 
+  test('should view only available books', () => {
+    library.addBook('123', 'TypeScript Basics', 'John Doe', 2020);
+    library.addBook('124', 'JavaScript Advanced', 'Jane Doe', 2021);
+    library.borrowBook('123');
+    const availableBooks = library.viewAvailableBooks();
+    expect(availableBooks.length).toBe(1);
+    expect(availableBooks[0].isbn).toBe('124');
+  });
+
 });
