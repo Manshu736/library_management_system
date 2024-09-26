@@ -28,5 +28,11 @@ describe('Library Management System', () => {
     expect(() => library.borrowBook('123')).toThrowError('Book with ISBN 123 is already borrowed.');
   });
 
+  test('should allow returning a borrowed book', () => {
+    library.addBook('123', 'TypeScript Basics', 'John Doe', 2020);
+    library.borrowBook('123');
+    library.returnBook('123');
+    expect(library.viewAvailableBooks().length).toBe(1);
+  });
 
 });

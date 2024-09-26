@@ -25,7 +25,9 @@ type Book = {
                    }
         book.isAvailable = false;
       }
-
+    returnBook(isbn:string):void{
+        
+    }
     viewAvailableBooks(): Book[] {
         return this.books.filter((book) => book.isAvailable);
       }
