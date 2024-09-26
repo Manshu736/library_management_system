@@ -18,4 +18,8 @@ describe('Library Management System', () => {
     expect(library.viewAvailableBooks().length).toBe(0);
   });
 
+  test('should throw error when borrowing a non-existent book', () => {
+    expect(() => library.borrowBook('999')).toThrow('Book with ISBN 999 not found.');
+  });
+
 });
