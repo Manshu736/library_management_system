@@ -14,7 +14,9 @@ type Book = {
         const book: Book = { isbn, title, author, year, isAvailable: true };
         this.books.push(book);
       }
-
+    borrowBook(isbn:string):void {
+        
+    }
     viewAvailableBooks(): Book[] {
         return this.books.filter((book) => book.isAvailable);
       }
