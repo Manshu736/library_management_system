@@ -34,5 +34,9 @@ describe('Library Management System', () => {
     library.returnBook('123');
     expect(library.viewAvailableBooks().length).toBe(1);
   });
+  
+  test('should throw error when returning a non-existent book', () => {
+    expect(() => library.returnBook('999')).toThrowError('Book with ISBN 999 not found.');
+  });
 
 });
