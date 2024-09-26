@@ -21,5 +21,12 @@ describe('Library Management System', () => {
   test('should throw error when borrowing a non-existent book', () => {
     expect(() => library.borrowBook('999')).toThrow('Book with ISBN 999 not found.');
   });
+  
+  test('should throw error when borrowing an already borrowed book', () => {
+    library.addBook('123', 'TypeScript Basics', 'John Doe', 2020);
+    library.borrowBook('123');
+    expect(() => library.borrowBook('123')).toThrowError('Book with ISBN 123 is already borrowed.');
+  });
+
 
 });
